@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 
 onready var player = get_node("/root/main/player")
-export var speed: int = 400
+export var speed: int = 200
 
 
 func _ready():
