@@ -10,7 +10,7 @@ func _on_player_life_changed(life):
 
 
 func set_player_life(life):
-	$life_label.text = str(life)
+	$life_panel/life_label.text = str(life)
 
 
 func _on_player_died():
