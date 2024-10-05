@@ -2,8 +2,12 @@ extends KinematicBody2D
 
 
 export var speed: int = 500
+var life: int = 100
 var bullet_scene = preload("res://gameplay/bullet/bullet.tscn")
 export var shooting_cooldown_seconds = 0.5
+
+signal life_changed
+signal died
 
 
 func _process(delta):
@@ -35,3 +39,11 @@ func shoot():
 		bullet.rotation_degrees = rotation_degrees
 		bullet.global_position = global_position
 		get_node("/root/main").add_child(bullet)
+
+
+func damage(damage_delta):
+	life -= damage_delta
+	if life <= 0:
+		life = 0
+		emit_signal("died")
+	emit_signal("life_changed", life)

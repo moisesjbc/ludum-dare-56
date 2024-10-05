@@ -12,4 +12,5 @@ func respawn_creature():
 	$path_follow.set_unit_offset(randf())
 	var creature = creature_scene.instance()
 	creature.global_position = $path_follow.global_position
+	creature.set_feature_type("damage")
 	get_node("/root/main/creatures_respawn").add_child(creature)
