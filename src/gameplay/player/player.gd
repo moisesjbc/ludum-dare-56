@@ -9,6 +9,8 @@ func _ready():
 
 
 func _process(delta):
+	look_at(get_global_mouse_position())
+
 	var velocity: Vector2 = Vector2.ZERO
 
 	if Input.is_action_pressed("ui_up"):
