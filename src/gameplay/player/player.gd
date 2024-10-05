@@ -5,9 +5,11 @@ export var speed: int = 500
 var life: int = 100
 var bullet_scene = preload("res://gameplay/bullet/bullet.tscn")
 export var shooting_cooldown_seconds = 0.5
+var energy: float = 100.0
 
 signal life_changed
 signal died
+signal energy_changed
 
 
 func _process(delta):
@@ -47,3 +49,12 @@ func damage(damage_delta):
 		life = 0
 		emit_signal("died")
 	emit_signal("life_changed", life)
+
+
+func consume_energy(energy_cost):
+	if energy > energy_cost:
+		energy -= energy_cost
+		emit_signal("energy_changed", energy)
+		return true
+	else:
+		return false

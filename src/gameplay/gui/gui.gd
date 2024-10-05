@@ -16,3 +16,11 @@ func set_player_life(life):
 func _on_player_died():
 	set_player_life(0)
 	$game_over.toggle(true)
+
+
+func _on_player_energy_changed(energy):
+	set_player_energy(energy)
+
+
+func set_player_energy(energy):
+	$energy_label.text = str("%0.2f" % energy)

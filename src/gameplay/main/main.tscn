@@ -21,4 +21,5 @@ position = Vector2( 1081, 371 )
 [node name="gui" parent="." instance=ExtResource( 5 )]
 
 [connection signal="died" from="player" to="gui" method="_on_player_died"]
+[connection signal="energy_changed" from="player" to="gui" method="_on_player_energy_changed"]
 [connection signal="life_changed" from="player" to="gui" method="_on_player_life_changed"]

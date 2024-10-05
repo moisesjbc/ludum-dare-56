@@ -1,6 +1,11 @@
 extends Area2D
 
 
+onready var player = get_node("/root/main/player")
+
+var energy_cost_per_second = 10
+
+
 func _ready():
 	visible = false
 	toggle_scanner(false)
@@ -13,6 +18,10 @@ func _process(delta):
 		toggle_scanner(true)
 	elif Input.is_action_just_released("scan"):
 		toggle_scanner(false)
+		
+	if visible == true:
+		if not player.consume_energy(energy_cost_per_second * delta):
+			toggle_scanner(false)
 
 
 func _on_scanner_body_entered(body):
