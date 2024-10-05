@@ -54,6 +54,13 @@ func damage(damage_delta):
 		life = 0
 		emit_signal("died")
 	emit_signal("life_changed", life)
+	
+
+func heal(life_delta):
+	life += life_delta
+	if life > 0:
+		life = 100
+	emit_signal("life_changed", life)
 
 
 func consume_energy(energy_cost):
