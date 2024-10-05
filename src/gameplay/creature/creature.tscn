@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://gameplay/creature/creature_walking_1.png" type="Texture" id=1]
 [ext_resource path="res://gameplay/creature/creature.gd" type="Script" id=2]
 [ext_resource path="res://gameplay/creature/creature_walking_0.png" type="Texture" id=3]
+[ext_resource path="res://gameplay/creature/features/feature_panel.png" type="Texture" id=4]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -48,3 +49,8 @@ margin_right = 37.0
 margin_bottom = -39.0
 text = "HP"
 align = 1
+
+[node name="feature_panel" type="Sprite" parent="."]
+position = Vector2( -1, -55 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 4 )

@@ -25,10 +25,12 @@ func _process(delta):
 
 
 func display_feature():
+	$feature_panel.visible = true
 	$features.visible = true
 
 
 func hide_feature():
+	$feature_panel.visible = false
 	$features.visible = false
 
 
