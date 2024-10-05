@@ -1,0 +1,22 @@
+[gd_scene format=2]
+
+[node name="gui" type="Control"]
+margin_right = 1280.0
+margin_bottom = 720.0
+
+[node name="life_label" type="Label" parent="."]
+margin_left = 11.0
+margin_top = 8.0
+margin_right = 69.0
+margin_bottom = 22.0
+size_flags_horizontal = 4
+text = "LIFE: 000"
+
+[node name="energy_label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -94.0
+margin_top = 13.0
+margin_right = -13.0
+margin_bottom = 27.0
+text = "ENERGY: 100"
