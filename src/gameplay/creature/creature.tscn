@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://gameplay/creature/creature_walking_1.png" type="Texture" id=1]
 [ext_resource path="res://gameplay/creature/creature.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://gameplay/creature/features/feature_panel.png" type="Texture" id=4]
 [ext_resource path="res://gameplay/creature/features/feature_heal.png" type="Texture" id=5]
 [ext_resource path="res://gameplay/creature/features/feature_damage.png" type="Texture" id=6]
+[ext_resource path="res://gameplay/creature/features/feature_energy_charge.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -26,6 +27,7 @@ script = ExtResource( 2 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 2 )
 animation = "walking"
+frame = 1
 playing = true
 flip_h = true
 flip_v = true
@@ -42,6 +44,7 @@ texture = ExtResource( 4 )
 [node name="features" type="Node2D" parent="."]
 
 [node name="damage" type="Sprite" parent="features"]
+visible = false
 position = Vector2( -1, -59 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 6 )
@@ -51,3 +54,8 @@ visible = false
 position = Vector2( -1, -58 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 5 )
+
+[node name="energy_charge" type="Sprite" parent="features"]
+position = Vector2( 1, -59 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 7 )

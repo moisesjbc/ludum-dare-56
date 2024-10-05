@@ -45,3 +45,5 @@ func apply_feature(player):
 		player.damage(feature_value)
 	elif current_feature_index == 1:
 		player.heal(feature_value)
+	elif current_feature_index == 2:
+		player.recharge_energy(feature_value)
