@@ -23,4 +23,4 @@ func _on_player_energy_changed(energy):
 
 
 func set_player_energy(energy):
-	$energy_label.text = str("%0.2f" % energy)
+	$energy_panel/energy_label.text = str("%0.0f" % energy)
