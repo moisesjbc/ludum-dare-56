@@ -18,3 +18,8 @@ func _input(event):
 func restart():
 	toggle(false)
 	get_tree().change_scene("res://gameplay/main/main.tscn")
+
+
+func _on_main_menu_button_pressed():
+	toggle(false)
+	get_tree().change_scene("res://gui/main_menu/main_menu.tscn")
