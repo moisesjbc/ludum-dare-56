@@ -46,7 +46,7 @@ func shoot():
 		bullet.velocity = (get_global_mouse_position() - $shooting_respawn_position.global_position).normalized()
 		bullet.rotation_degrees = rotation_degrees
 		bullet.global_position = $shooting_respawn_position.global_position
-		get_node("/root/main").add_child(bullet)
+		get_parent().add_child(bullet)
 
 
 func damage(damage_delta):
