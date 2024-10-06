@@ -51,6 +51,7 @@ func shoot():
 
 func damage(damage_delta):
 	life -= damage_delta
+	$audios/hit.play()
 	if life <= 0:
 		life = 0
 		emit_signal("died")
