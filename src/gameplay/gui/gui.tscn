@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://gameplay/gui/gui.gd" type="Script" id=1]
 [ext_resource path="res://gameplay/gui/game_over/game_over.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gameplay/gui/heart.png" type="Texture" id=3]
 [ext_resource path="res://fonts/ubuntu_dynamicfont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://gameplay/gui/energy.png" type="Texture" id=5]
+[ext_resource path="res://gameplay/gui/pause_menu/pause_menu.tscn" type="PackedScene" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.439216, 0.164706, 0.164706, 1 )
@@ -110,5 +111,8 @@ valign = 1
 [node name="game_timer" type="Timer" parent="."]
 pause_mode = 1
 autostart = true
+
+[node name="pause_menu" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [connection signal="timeout" from="game_timer" to="." method="_on_game_timer_timeout"]
