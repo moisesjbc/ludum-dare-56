@@ -41,6 +41,7 @@ func _process(delta):
 func shoot():
 	if $shooting_cooldown.is_stopped() and consume_energy(energy_cost_per_shot):
 		$shooting_cooldown.start(shooting_cooldown_seconds)
+		$audios/shot.play()
 		var bullet = bullet_scene.instance()
 		bullet.velocity = (get_global_mouse_position() - $shooting_respawn_position.global_position).normalized()
 		bullet.rotation_degrees = rotation_degrees
