@@ -16,7 +16,6 @@ position = Vector2( -23, -25 )
 rotation = -0.00586571
 
 [node name="respawn_timer" type="Timer" parent="."]
-autostart = true
 
 [node name="explosions" type="Node2D" parent="."]
 

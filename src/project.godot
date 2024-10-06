@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "FeatureType",
+"language": "GDScript",
+"path": "res://globals/types/featue_type.gd"
+} ]
+_global_script_class_icons={
+"FeatureType": ""
+}
+
 [application]
 
 config/name="Ludum Dare 56"

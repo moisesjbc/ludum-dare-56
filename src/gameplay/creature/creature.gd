@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 onready var player = get_node("/root/main/player")
 export var speed: int = 200
-var current_feature_index
+var current_feature_type
 
 # Value of the current feature. For example, if current featuer is damage, feature_value
 # specifies the damage caused to the player.
@@ -36,19 +36,20 @@ func hide_feature():
 	$features.visible = false
 
 
-func set_feature_type(new_feature_index):
-	current_feature_index = new_feature_index
+func set_feature_type(new_feature_type):
+	current_feature_type = new_feature_type
 	for feature_index in $features.get_child_count():
-		$features.get_child(feature_index).visible = (feature_index == current_feature_index)
+		$features.get_child(feature_index).visible = (feature_index == current_feature_type)
 
 
 func apply_feature(player):
-	if current_feature_index == 0:
-		player.damage(feature_value)
-	elif current_feature_index == 1:
-		player.heal(feature_value)
-	elif current_feature_index == 2:
-		player.recharge_energy(feature_value, true)
+	match current_feature_type:
+		FeatureType.DAMAGE:
+			player.damage(feature_value)
+		FeatureType.LIFE_POWERUP:
+			player.heal(feature_value)
+		FeatureType.ENERGY_POWERUP:
+			player.recharge_energy(feature_value, true)
 
 
 func die():
