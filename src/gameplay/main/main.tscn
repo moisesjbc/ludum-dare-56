@@ -9,7 +9,7 @@
 [node name="main" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 416, 200 )
+position = Vector2( 635, 350 )
 
 [node name="creatures_respawn" parent="." instance=ExtResource( 3 )]
 
