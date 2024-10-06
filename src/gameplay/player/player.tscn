@@ -22,3 +22,6 @@ shape = SubResource( 1 )
 
 [node name="shooting_cooldown" type="Timer" parent="."]
 one_shot = true
+
+[node name="shooting_respawn_position" type="Position2D" parent="."]
+position = Vector2( 38, 33 )
