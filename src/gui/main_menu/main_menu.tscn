@@ -15,6 +15,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="panel" parent="center_container" instance=ExtResource( 4 )]
+margin_top = 210.0
+margin_bottom = 510.0
+rect_min_size = Vector2( 500, 300 )
 
 [node name="magin_container" type="MarginContainer" parent="center_container/panel"]
 anchor_right = 1.0
@@ -28,12 +31,12 @@ custom_constants/margin_bottom = 20
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 480.0
-margin_bottom = 230.0
+margin_bottom = 282.0
 custom_constants/separation = 20
 
 [node name="title_label" type="Label" parent="center_container/panel/magin_container/vbox_container"]
 margin_right = 460.0
-margin_bottom = 66.0
+margin_bottom = 46.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
@@ -42,14 +45,18 @@ align = 1
 valign = 1
 
 [node name="play_button" parent="center_container/panel/magin_container/vbox_container" instance=ExtResource( 2 )]
-margin_top = 86.0
-margin_bottom = 138.0
 text = "Play"
 
+[node name="credits_button" parent="center_container/panel/magin_container/vbox_container" instance=ExtResource( 2 )]
+margin_top = 138.0
+margin_bottom = 190.0
+text = "Credits"
+
 [node name="exit_button" parent="center_container/panel/magin_container/vbox_container" instance=ExtResource( 2 )]
-margin_top = 158.0
-margin_bottom = 210.0
+margin_top = 210.0
+margin_bottom = 262.0
 text = "Exit"
 
 [connection signal="pressed" from="center_container/panel/magin_container/vbox_container/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="center_container/panel/magin_container/vbox_container/credits_button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="center_container/panel/magin_container/vbox_container/exit_button" to="." method="_on_exit_button_pressed"]

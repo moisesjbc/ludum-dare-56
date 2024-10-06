@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://gui/panel/panel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gui/button/button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/credits_menu/credits_menu.gd" type="Script" id=3]
+[ext_resource path="res://fonts/ubuntu_dynamicfont.tres" type="DynamicFont" id=4]
+
+[node name="credits_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="magin_container" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="vbox_container" type="VBoxContainer" parent="magin_container"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1260.0
+margin_bottom = 700.0
+custom_constants/separation = 20
+
+[node name="panel" parent="magin_container/vbox_container" instance=ExtResource( 1 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 1240.0
+margin_bottom = 608.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="magin_container" type="MarginContainer" parent="magin_container/vbox_container/panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="credits_text" type="RichTextLabel" parent="magin_container/vbox_container/panel/magin_container"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1230.0
+margin_bottom = 598.0
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "[center]CREDITS
+
+[color=#DB995A]Idea and development[/color]
+Moisés J. Bonilla Caraballo ([url=https://moisesjose.com/]web[/url])
+
+[color=#DB995A]Third-party tools and resources[/color]
+[url=https://godotengine.org/]Godot engine[/url]
+[url=https://www.gimp.org/]GIMP[/url]
+[url=https://www.drpetter.se/project_sfxr.html]sfxr[/url]
+[url=https://coolors.co]Coolors[/url]
+[url=https://design.ubuntu.com/font]Ubuntu Font[/url]
+
+[color=#DB995A]Made for [url=https://ldjam.com/events/ludum-dare/56]Ludum Dare #56[/url] - Theme: Tiny creatures[/color]
+[/center]"
+text = "CREDITS
+
+Idea and development
+Moisés J. Bonilla Caraballo (web)
+
+Third-party tools and resources
+Godot engine
+GIMP
+sfxr
+Coolors
+Ubuntu Font
+
+Made for Ludum Dare #56 - Theme: Tiny creatures
+"
+
+[node name="main_menu_button" parent="magin_container/vbox_container" instance=ExtResource( 2 )]
+margin_top = 628.0
+margin_right = 1240.0
+margin_bottom = 680.0
+text = "Return to main menu"
+
+[connection signal="meta_clicked" from="magin_container/vbox_container/panel/magin_container/credits_text" to="." method="_on_credits_text_meta_clicked"]
+[connection signal="pressed" from="magin_container/vbox_container/main_menu_button" to="." method="_on_main_menu_button_pressed"]
