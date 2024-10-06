@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/ubuntu_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://gui/button/button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/main_menu/main_menu.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.345098, 0.505882, 0.341176, 1 )
+
+[node name="main_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="center_container" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="panel" type="Panel" parent="center_container"]
+margin_left = 390.0
+margin_top = 235.0
+margin_right = 890.0
+margin_bottom = 485.0
+rect_min_size = Vector2( 500, 250 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="magin_container" type="MarginContainer" parent="center_container/panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="vbox_container" type="VBoxContainer" parent="center_container/panel/magin_container"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 480.0
+margin_bottom = 230.0
+custom_constants/separation = 20
+
+[node name="title_label" type="Label" parent="center_container/panel/magin_container/vbox_container"]
+margin_right = 460.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "TINY REVOLUTION"
+align = 1
+valign = 1
+
+[node name="play_button" parent="center_container/panel/magin_container/vbox_container" instance=ExtResource( 2 )]
+margin_top = 158.0
+margin_bottom = 210.0
+
+[connection signal="pressed" from="center_container/panel/magin_container/vbox_container/play_button" to="." method="_on_play_button_pressed"]
