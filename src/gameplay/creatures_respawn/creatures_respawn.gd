@@ -15,7 +15,7 @@ func respawn_creature():
 	creature.global_position = $path_follow.global_position
 	creature.set_feature_type(randi()%3)
 	creature.connect("died", self, "_on_creature_died")
-	get_node("/root/main/creatures_respawn").add_child(creature)
+	$creatures.add_child(creature)
 
 
 func _on_creature_died():
