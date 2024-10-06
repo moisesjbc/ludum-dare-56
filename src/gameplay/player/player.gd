@@ -59,6 +59,7 @@ func damage(damage_delta):
 	
 
 func heal(life_delta):
+	$audios/life_powerup.play()
 	life += life_delta
 	if life > 0:
 		life = 100
