@@ -9,6 +9,8 @@ var current_feature_index
 # specifies the damage caused to the player.
 var feature_value = 30
 
+signal died
+
 
 func _ready():
 	hide_feature()
@@ -47,3 +49,8 @@ func apply_feature(player):
 		player.heal(feature_value)
 	elif current_feature_index == 2:
 		player.recharge_energy(feature_value)
+
+
+func die():
+	emit_signal("died")
+	queue_free()

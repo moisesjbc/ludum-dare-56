@@ -10,7 +10,7 @@ func _process(delta):
 
 	if collision and collision.collider.is_in_group("creatures"):
 		queue_free()
-		collision.collider.queue_free()
+		collision.collider.die()
 
 
 func _on_visibility_notifier_viewport_exited(viewport):

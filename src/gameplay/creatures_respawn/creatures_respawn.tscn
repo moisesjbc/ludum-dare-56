@@ -18,4 +18,6 @@ rotation = -0.00586571
 [node name="respawn_timer" type="Timer" parent="."]
 autostart = true
 
+[node name="explosions" type="Node2D" parent="."]
+
 [connection signal="timeout" from="respawn_timer" to="." method="_on_respawn_timer_timeout"]
