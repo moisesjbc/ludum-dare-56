@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Ludum Dare 56"
+config/name="Tiny revolution"
 run/main_scene="res://gui/main_menu/main_menu.tscn"
 config/icon="res://icon.png"
 
