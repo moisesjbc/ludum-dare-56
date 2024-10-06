@@ -20,9 +20,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="panel" parent="center_container" instance=ExtResource( 4 )]
-margin_top = 147.0
-margin_bottom = 572.0
-rect_min_size = Vector2( 500, 425 )
+margin_top = 110.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 500, 500 )
 
 [node name="magin_container" type="MarginContainer" parent="center_container/panel"]
 anchor_right = 1.0
@@ -36,12 +36,12 @@ custom_constants/margin_bottom = 20
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 480.0
-margin_bottom = 405.0
+margin_bottom = 480.0
 custom_constants/separation = 20
 
 [node name="title_label" type="Label" parent="center_container/panel/magin_container/vbox_container"]
 margin_right = 460.0
-margin_bottom = 54.0
+margin_bottom = 57.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
@@ -50,29 +50,34 @@ align = 1
 valign = 1
 
 [node name="play_button" parent="center_container/panel/magin_container/vbox_container" instance=ExtResource( 2 )]
-margin_top = 74.0
-margin_bottom = 126.0
+margin_top = 77.0
+margin_bottom = 129.0
 text = "Play"
 
 [node name="tutorial_button" parent="center_container/panel/magin_container/vbox_container" instance=ExtResource( 2 )]
-margin_top = 146.0
-margin_bottom = 198.0
+margin_top = 149.0
+margin_bottom = 201.0
 text = "Tutorial"
 
+[node name="fullscreen_button" parent="center_container/panel/magin_container/vbox_container" instance=ExtResource( 2 )]
+margin_top = 221.0
+margin_bottom = 273.0
+text = "Fullscreen: OFF"
+
 [node name="credits_button" parent="center_container/panel/magin_container/vbox_container" instance=ExtResource( 2 )]
-margin_top = 218.0
-margin_bottom = 270.0
+margin_top = 293.0
+margin_bottom = 345.0
 text = "Credits"
 
 [node name="exit_button" parent="center_container/panel/magin_container/vbox_container" instance=ExtResource( 2 )]
-margin_top = 290.0
-margin_bottom = 342.0
+margin_top = 365.0
+margin_bottom = 417.0
 text = "Exit"
 
 [node name="version_label" type="Label" parent="center_container/panel/magin_container/vbox_container"]
-margin_top = 362.0
+margin_top = 437.0
 margin_right = 460.0
-margin_bottom = 385.0
+margin_bottom = 460.0
 custom_fonts/font = SubResource( 1 )
 text = "v0.2"
 align = 1
@@ -80,5 +85,6 @@ valign = 1
 
 [connection signal="pressed" from="center_container/panel/magin_container/vbox_container/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="center_container/panel/magin_container/vbox_container/tutorial_button" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="center_container/panel/magin_container/vbox_container/fullscreen_button" to="." method="_on_fullscreen_button_pressed"]
 [connection signal="pressed" from="center_container/panel/magin_container/vbox_container/credits_button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="center_container/panel/magin_container/vbox_container/exit_button" to="." method="_on_exit_button_pressed"]

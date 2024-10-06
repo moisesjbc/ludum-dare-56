@@ -19,3 +19,12 @@ func _on_exit_button_pressed():
 
 func _on_tutorial_button_pressed():
 	get_tree().change_scene("res://gameplay/tutorial/tutorial.tscn")
+
+
+func _on_fullscreen_button_pressed():
+	OS.window_fullscreen = not OS.window_fullscreen
+	$center_container/panel/magin_container/vbox_container/fullscreen_button.text = "Fullscreen: "
+	if OS.window_fullscreen:
+		$center_container/panel/magin_container/vbox_container/fullscreen_button.text += "ON"
+	else:
+		$center_container/panel/magin_container/vbox_container/fullscreen_button.text += "OFF"
