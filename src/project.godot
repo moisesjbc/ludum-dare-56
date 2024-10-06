@@ -26,7 +26,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Background="*res://globals/background/background.tscn"
+background="*res://globals/background/background.tscn"
+button_click="*res://globals/sfx/button_click.tscn"
 
 [display]
 

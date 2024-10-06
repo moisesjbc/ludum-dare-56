@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://fonts/ubuntu_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://gui/button/button.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.282353, 0.423529, 0.552941, 1 )
@@ -36,3 +37,6 @@ custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/normal = SubResource( 1 )
 text = "PLAY"
+script = ExtResource( 2 )
+
+[connection signal="pressed" from="." to="." method="_on_play_button_pressed"]
