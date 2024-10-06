@@ -1,19 +1,40 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://gameplay/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gameplay/gui/gui.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gui/panel/panel.tscn" type="PackedScene" id=3]
-[ext_resource path="res://fonts/ubuntu_dynamicfont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://gameplay/tutorial/steps/about.gd" type="Script" id=4]
 [ext_resource path="res://fonts/Ubuntu-B.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://gameplay/tutorial/tutorial.gd" type="Script" id=6]
+[ext_resource path="res://gameplay/tutorial/steps/welcome.gd" type="Script" id=7]
+[ext_resource path="res://gameplay/tutorial/steps/movement.gd" type="Script" id=8]
+[ext_resource path="res://gameplay/tutorial/steps/shooting.gd" type="Script" id=9]
+[ext_resource path="res://gameplay/creature/creature.tscn" type="PackedScene" id=10]
+[ext_resource path="res://gameplay/tutorial/steps/scanner_pre.gd" type="Script" id=11]
+[ext_resource path="res://gameplay/scanner/scanner.tscn" type="PackedScene" id=12]
+[ext_resource path="res://gameplay/tutorial/steps/scanner.gd" type="Script" id=13]
+[ext_resource path="res://gameplay/tutorial/steps/features.gd" type="Script" id=14]
+[ext_resource path="res://gameplay/tutorial/steps/ending.gd" type="Script" id=15]
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
 font_data = ExtResource( 5 )
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 88.5, 60 )
+
 [node name="tutorial" type="Node2D"]
+position = Vector2( 1, 0 )
+script = ExtResource( 6 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 627, 368 )
+position = Vector2( 300, 200 )
+collision_layer = 1
+collision_mask = 50
 
 [node name="gui" parent="." instance=ExtResource( 2 )]
 
@@ -22,7 +43,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
-margin_top = 612.0
+margin_top = 552.0
 margin_right = 1270.0
 margin_bottom = 712.0
 rect_min_size = Vector2( 500, 100 )
@@ -31,14 +52,75 @@ rect_min_size = Vector2( 500, 100 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -28.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = SubResource( 2 )
 align = 1
 valign = 1
 
 [node name="quit_text" type="Label" parent="instructions_panel"]
-margin_left = 972.0
-margin_top = 73.0
-margin_right = 1255.0
-margin_bottom = 96.0
+margin_left = 965.0
+margin_top = 132.0
+margin_right = 1248.0
+margin_bottom = 155.0
 custom_fonts/font = SubResource( 1 )
-text = "Press ESCAPE to skip tutoial"
+text = "Press ESCAPE to skip tutorial"
+
+[node name="steps" type="Node2D" parent="."]
+
+[node name="welcome" type="Node2D" parent="steps"]
+visible = false
+script = ExtResource( 7 )
+
+[node name="about" type="Node2D" parent="steps"]
+visible = false
+script = ExtResource( 4 )
+
+[node name="movement" type="Node2D" parent="steps"]
+visible = false
+script = ExtResource( 8 )
+
+[node name="target_area" type="Area2D" parent="steps/movement"]
+collision_layer = 32
+
+[node name="color_rect" type="ColorRect" parent="steps/movement/target_area"]
+margin_left = 539.0
+margin_top = 245.0
+margin_right = 721.0
+margin_bottom = 371.0
+color = Color( 0.611765, 0.827451, 0.635294, 0.588235 )
+
+[node name="collision_shape" type="CollisionShape2D" parent="steps/movement/target_area"]
+position = Vector2( 630.5, 308 )
+shape = SubResource( 3 )
+
+[node name="shooting" type="Node2D" parent="steps"]
+visible = false
+script = ExtResource( 9 )
+
+[node name="creature" parent="steps/shooting" instance=ExtResource( 10 )]
+position = Vector2( 1020, 296 )
+speed = 0
+
+[node name="scanner_pre" type="Node2D" parent="steps"]
+script = ExtResource( 11 )
+
+[node name="scanner" type="Node2D" parent="steps"]
+script = ExtResource( 13 )
+
+[node name="scanner" parent="steps/scanner" instance=ExtResource( 12 )]
+
+[node name="damage_creature_pos" type="Position2D" parent="steps/scanner"]
+position = Vector2( 296, 432 )
+
+[node name="life_creature_pos" type="Position2D" parent="steps/scanner"]
+position = Vector2( 974, 445 )
+
+[node name="energy_creature_pos" type="Position2D" parent="steps/scanner"]
+position = Vector2( 984, 164 )
+
+[node name="features" type="Node2D" parent="steps"]
+script = ExtResource( 14 )
+
+[node name="ending" type="Node2D" parent="steps"]
+script = ExtResource( 15 )
+
+[connection signal="energy_changed" from="player" to="gui" method="_on_player_energy_changed"]

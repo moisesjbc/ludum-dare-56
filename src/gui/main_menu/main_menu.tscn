@@ -52,7 +52,7 @@ text = "Play"
 [node name="tutorial_button" parent="center_container/panel/magin_container/vbox_container" instance=ExtResource( 2 )]
 margin_top = 164.0
 margin_bottom = 216.0
-text = "About / how to play"
+text = "Tutorial"
 
 [node name="credits_button" parent="center_container/panel/magin_container/vbox_container" instance=ExtResource( 2 )]
 margin_top = 236.0

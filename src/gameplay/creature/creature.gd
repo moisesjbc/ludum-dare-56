@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 onready var player = get_node("/root/main/player")
 export var speed: int = 200
-var current_feature_type
+export var current_feature_type: int
 
 # Value of the current feature. For example, if current featuer is damage, feature_value
 # specifies the damage caused to the player.
@@ -13,6 +13,8 @@ signal died
 
 
 func _ready():
+	if player == null:
+		player = get_node("/root/tutorial/player")
 	hide_feature()
 
 

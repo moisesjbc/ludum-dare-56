@@ -7,6 +7,8 @@ var energy_cost_per_second = 10
 
 
 func _ready():
+	if player == null:
+		player = get_node("/root/tutorial/player")
 	visible = false
 	toggle_scanner(false)
 

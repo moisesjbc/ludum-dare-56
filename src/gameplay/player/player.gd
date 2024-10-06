@@ -15,24 +15,29 @@ signal died
 signal energy_changed
 
 
+var movement_enabled = true
+var shooting_enabled = true
+
+
 func _process(delta):
 	look_at(get_global_mouse_position())
 
-	var velocity: Vector2 = Vector2.ZERO
+	if movement_enabled:
+		var velocity: Vector2 = Vector2.ZERO
 
-	if Input.is_action_pressed("ui_up"):
-		velocity.y = -1
-	elif Input.is_action_pressed("ui_down"):
-		velocity.y = 1
+		if Input.is_action_pressed("ui_up"):
+			velocity.y = -1
+		elif Input.is_action_pressed("ui_down"):
+			velocity.y = 1
 
-	if Input.is_action_pressed("ui_left"):
-		velocity.x = -1
-	elif Input.is_action_pressed("ui_right"):
-		velocity.x = 1
+		if Input.is_action_pressed("ui_left"):
+			velocity.x = -1
+		elif Input.is_action_pressed("ui_right"):
+			velocity.x = 1
 
-	move_and_collide(velocity * speed * delta)
+		move_and_collide(velocity * speed * delta)
 
-	if Input.is_action_pressed("shoot"):
+	if Input.is_action_pressed("shoot") and shooting_enabled:
 		shoot()
 
 	recharge_energy(energy_charge_per_second * delta)
