@@ -74,7 +74,9 @@ func consume_energy(energy_cost):
 		return false
 
 
-func recharge_energy(energy_delta):
+func recharge_energy(energy_delta, powerup=false):
+	if powerup:
+		$audios/energy_powerup.play()
 	energy += energy_delta
 	if energy > 100:
 		energy = 100.0

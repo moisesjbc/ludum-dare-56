@@ -48,7 +48,7 @@ func apply_feature(player):
 	elif current_feature_index == 1:
 		player.heal(feature_value)
 	elif current_feature_index == 2:
-		player.recharge_energy(feature_value)
+		player.recharge_energy(feature_value, true)
 
 
 func die():
