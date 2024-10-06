@@ -19,6 +19,5 @@ func respawn_creature():
 
 
 func _on_creature_died():
-	print("DIED!")
 	var explosion = explosion_scene.instance()
 	$explosions.add_child(explosion)
