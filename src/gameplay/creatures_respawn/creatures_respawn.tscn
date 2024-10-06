@@ -21,4 +21,9 @@ rotation = -0.00586571
 
 [node name="creatures" type="Node2D" parent="."]
 
+[node name="difficulty_timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="timeout" from="respawn_timer" to="." method="_on_respawn_timer_timeout"]
+[connection signal="timeout" from="difficulty_timer" to="." method="_on_difficulty_timer_timeout"]

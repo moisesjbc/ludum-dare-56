@@ -7,6 +7,9 @@ export var creature_max_speed: int = 250
 export var respawn_time: float = 1.5
 export var good_feature_probability: float = 0.2
 
+export var creature_speed_delta: int = 10
+export var respawn_time_delta: float = 0.05
+
 
 func _ready():
 	$respawn_timer.start(respawn_time)
@@ -44,3 +47,10 @@ func respawn_creature():
 func _on_creature_died():
 	var explosion = explosion_scene.instance()
 	$explosions.add_child(explosion)
+
+
+func _on_difficulty_timer_timeout():
+	creature_min_speed += creature_speed_delta
+	creature_max_speed += creature_speed_delta
+	respawn_time -= respawn_time_delta
+	
