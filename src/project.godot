@@ -32,6 +32,9 @@ Background="*res://globals/background/background.tscn"
 
 window/size/width=1280
 window/size/height=720
+mouse_cursor/custom_image="res://globals/cursor/cursor.png"
+mouse_cursor/custom_image_hotspot=Vector2( 16, 16 )
+mouse_cursor/tooltip_position_offset=Vector2( 16, 16 )
 window/stretch/mode="2d"
 window/stretch/aspect="keep_width"
 
